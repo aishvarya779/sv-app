@@ -1,12 +1,18 @@
 <script>
 	export let name;
-	let src= '/tutorial/image.gif';
+	export let src;
+	let count = 0;
+	function incrementCount() {
+		count += 1;
+	}
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
-	<img src={src}>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<button on:click={incrementCount}>
+		Clicked {count} {count === 1 ? 'time' : 'times'}
+	</button>
+	<img src={src} alt="Test">
 </main>
 
 <style>
@@ -21,7 +27,7 @@
 		color: #ff3e00;
 		text-transform: uppercase;
 		font-size: 4em;
-		font-weight: 100;
+		font-weight: 400;
 	}
 
 	@media (min-width: 640px) {
