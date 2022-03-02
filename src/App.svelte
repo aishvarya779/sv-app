@@ -1,14 +1,35 @@
 <script>
+import Nested from './Nested.svelte';
+import IfElse from './IfElse.svelte';
+let pkg = {
+	answer:125
+}
 	export let name;
 	export let src;
-	let count = 0;
+	$: count = 0;
 	function incrementCount() {
 		count += 1;
 	}
+	let numbers = [1, 2, 3, 4,5];
+
+	function addNumber() {
+		numbers.push(numbers.length + 1);
+		console.log(numbers);
+	}
+
+	$: sum = numbers.reduce((t, n) => t + n, 0);
 </script>
 
 <main>
+<IfElse/>
+<Nested answer={42}/>
+<Nested {...pkg}/>
 	<h1>Hello {name}!</h1>
+	<p>{numbers.join(' + ')} = {sum}</p>
+
+<button on:click={addNumber}>
+	Add a number
+</button>
 	<button on:click={incrementCount}>
 		Clicked {count} {count === 1 ? 'time' : 'times'}
 	</button>
