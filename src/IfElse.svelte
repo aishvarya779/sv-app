@@ -1,4 +1,6 @@
 <script>
+import Multi from './MultiCondition.svelte';
+import Loop from './Loop.svelte';
 let user = {
     loggedIn: false
 }
@@ -7,6 +9,7 @@ const toggle = () => {
     user.loggedIn = !user.loggedIn;
 }
 </script>
+
 {#if user.loggedIn}
 	<button on:click={toggle}>
 		Log out
@@ -22,3 +25,5 @@ const toggle = () => {
     {#if !user.loggedIn}
     <p>Yes I am Out</p>
     {/if}
+    <Multi/>
+    <Loop/>
