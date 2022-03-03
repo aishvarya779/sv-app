@@ -1,4 +1,6 @@
 <script>
+
+	let value = `Some words are <b>*italic*</b>, some are **bold**`;
 import Thing from './Thing.svelte';
     let cats = [
 		{ id: 'J---aiyznGQ', name: 'Keyboard Cat' },
@@ -12,7 +14,11 @@ import Thing from './Thing.svelte';
 		{ id: 4, name: 'doughnut' },
 		{ id: 5, name: 'egg' }
 	];
+	let name = "Amazon";
 </script>
+
+<input bind:value={name}>
+<p>Hello {name}</p>
 <ul>
 	{#each cats as cat, i}
 		<li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}">
